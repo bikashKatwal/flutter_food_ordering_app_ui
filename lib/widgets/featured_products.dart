@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_ordering_app/commons.dart';
 import 'package:food_ordering_app/models/products.dart';
 import 'package:food_ordering_app/widgets/custom_text.dart';
@@ -33,10 +34,25 @@ class FeaturedProducts extends StatelessWidget {
             ]),
             child: Column(
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 4),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      FeaturedIcon(
+                        iconData: productsList[i].wishList
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        size: 14,
+                      ),
+                    ],
+                  ),
+                ),
                 Image.asset(
                   "images/${productsList[i].image}",
                   height: 140,
                   width: 140,
+                  fit: BoxFit.cover,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,11 +64,13 @@ class FeaturedProducts extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 4),
-                    FeaturedIcon(
-                      iconData: productsList[i].wishList
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                    )
+                    Padding(
+                      padding: const EdgeInsets.only(right: 4),
+                      child: FeaturedIcon(
+                        iconData: FontAwesomeIcons.locationArrow,
+                        size: 12,
+                      ),
+                    ),
                   ],
                 ),
                 Row(

@@ -3,18 +3,30 @@ import 'package:food_ordering_app/commons.dart';
 
 class FeaturedIcon extends StatelessWidget {
   final IconData iconData;
+  final double size;
+  final Color color;
+  final Color backGroundColor;
+  final double radius;
 
-  const FeaturedIcon({this.iconData});
+  const FeaturedIcon({
+    @required this.iconData,
+    this.size,
+    this.color,
+    this.backGroundColor,
+    this.radius = 30,
+  });
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: Container(
-        decoration:
-            kBoxDecoration.copyWith(borderRadius: BorderRadius.circular(30)),
-        child: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Icon(iconData, color: kRed, size: 16),
+    return Container(
+      decoration: kBoxDecoration.copyWith(
+          color: backGroundColor ?? kWhite,
+          borderRadius: BorderRadius.circular(radius)),
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Row(
+          children: <Widget>[
+            Icon(iconData, color: color ?? kRed, size: size ?? 16),
+          ],
         ),
       ),
     );

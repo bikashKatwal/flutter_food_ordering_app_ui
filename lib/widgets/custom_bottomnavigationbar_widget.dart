@@ -9,20 +9,6 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -37,20 +23,24 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          title: Text('Home'),
+          title: SizedBox.shrink(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          title: Text('Business'),
+          icon: Icon(Icons.center_focus_weak),
+          title: SizedBox.shrink(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          title: Text('School'),
+          icon: Icon(Icons.shopping_basket),
+          title: SizedBox.shrink(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          title: Text('School'),
-        )
+          icon: CircleAvatar(
+            radius: 15,
+            backgroundImage: NetworkImage(
+                'https://avatars3.githubusercontent.com/u/10209064?s=460&v=4'),
+          ),
+          title: SizedBox.shrink(),
+        ),
       ],
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],
