@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_ordering_app/commons.dart';
+import 'package:food_ordering_app/helpers/commons.dart';
 
 class CustomText extends StatelessWidget {
   final String titleText;

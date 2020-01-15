@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_ordering_app/commons.dart';
+import 'package:food_ordering_app/helpers/commons.dart';
 import 'package:food_ordering_app/widgets/categories_widget.dart';
 import 'package:food_ordering_app/widgets/custom_bottomnavigationbar_widget.dart';
 import 'package:food_ordering_app/widgets/custom_text.dart';

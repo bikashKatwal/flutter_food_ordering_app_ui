@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:food_ordering_app/commons.dart';
+import 'package:food_ordering_app/helpers/commons.dart';
+import 'package:food_ordering_app/helpers/screen_navigation.dart';
+
 import 'package:food_ordering_app/models/products.dart';
+import 'package:food_ordering_app/screens/product_detail_page.dart';
 import 'package:food_ordering_app/widgets/custom_text.dart';
 import 'package:food_ordering_app/widgets/featured_icon.dart';
 
@@ -25,81 +28,87 @@ class FeaturedProducts extends StatelessWidget {
         itemCount: productsList.length,
         itemBuilder: (_, i) => Padding(
           padding: const EdgeInsets.fromLTRB(12, 14, 16, 12),
-          child: Container(
-            height: 220,
-            width: 200,
-            decoration: kBoxDecoration.copyWith(boxShadow: [
-              BoxShadow(
-                  color: kRed[50], offset: Offset(15, 15), blurRadius: 30),
-            ]),
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+          child: GestureDetector(
+            onTap: () => changeScreen(
+              context,
+              ProductDetailsPage(products: productsList[i]),
+            ),
+            child: Container(
+              height: 220,
+              width: 200,
+              decoration: kBoxDecoration.copyWith(boxShadow: [
+                BoxShadow(
+                    color: kRed[50], offset: Offset(15, 15), blurRadius: 30),
+              ]),
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        FeaturedIcon(
+                          iconData: productsList[i].wishList
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          size: 14,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Image.asset(
+                    "images/${productsList[i].image}",
+                    height: 140,
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      FeaturedIcon(
-                        iconData: productsList[i].wishList
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        size: 14,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CustomText(
+                          titleText: productsList[i].name,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: FeaturedIcon(
+                          iconData: FontAwesomeIcons.locationArrow,
+                          size: 12,
+                        ),
                       ),
                     ],
                   ),
-                ),
-                Image.asset(
-                  "images/${productsList[i].image}",
-                  height: 140,
-                  width: 140,
-                  fit: BoxFit.cover,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CustomText(
-                        titleText: productsList[i].name,
-                      ),
-                    ),
-                    SizedBox(height: 4),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 4),
-                      child: FeaturedIcon(
-                        iconData: FontAwesomeIcons.locationArrow,
-                        size: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: CustomText(
-                            titleText: productsList[i].rating.toString(),
-                            customColors: kGrey,
-                            customFontSize: 14,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: CustomText(
+                              titleText: productsList[i].rating.toString(),
+                              customColors: kGrey,
+                              customFontSize: 14,
+                            ),
                           ),
-                        ),
-                        _buildIcons(productsList[i].rating.round()),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 4),
-                      child: CustomText(
-                        titleText: '\$${productsList[i].price}',
-                        customFontSize: 14,
-                        customFontWeight: FontWeight.bold,
+                          _buildIcons(productsList[i].rating.round()),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: CustomText(
+                          titleText: '\$${productsList[i].price}',
+                          customFontSize: 14,
+                          customFontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
