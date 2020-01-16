@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:food_ordering_app/helpers/commons.dart';
 import 'package:food_ordering_app/widgets/categories_widget.dart';
-import 'package:food_ordering_app/widgets/custom_bottomnavigationbar_widget.dart';
 import 'package:food_ordering_app/widgets/custom_text.dart';
 import 'package:food_ordering_app/widgets/featured_icon.dart';
 import 'package:food_ordering_app/widgets/featured_products.dart';
 
-class HomePage extends StatefulWidget {
+class ProductScreen extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _ProductScreenState createState() => _ProductScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -246,7 +245,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigation(),
     );
   }
 }

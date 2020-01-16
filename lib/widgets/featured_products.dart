@@ -4,7 +4,7 @@ import 'package:food_ordering_app/helpers/commons.dart';
 import 'package:food_ordering_app/helpers/screen_navigation.dart';
 
 import 'package:food_ordering_app/models/products.dart';
-import 'package:food_ordering_app/screens/product_detail_page.dart';
+import 'package:food_ordering_app/screens/details/product_details_page.dart';
 import 'package:food_ordering_app/widgets/custom_text.dart';
 import 'package:food_ordering_app/widgets/featured_icon.dart';
 

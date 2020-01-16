@@ -19,8 +19,9 @@ class FeaturedIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: kBoxDecoration.copyWith(
-          color: backGroundColor ?? kWhite,
-          borderRadius: BorderRadius.circular(radius)),
+        color: backGroundColor ?? kWhite,
+        borderRadius: BorderRadius.circular(radius),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Row(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_ordering_app/helpers/commons.dart';
 import 'package:food_ordering_app/models/products.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:food_ordering_app/widgets/custom_button.dart';
 import 'package:food_ordering_app/widgets/custom_text.dart';
 import 'package:food_ordering_app/widgets/featured_icon.dart';
 
@@ -40,18 +41,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         ),
                         Image.asset(
                           'images/2.jpeg',
-                          fit: BoxFit.fill,
-                        ),
-                        Image.asset(
-                          'images/3.jpeg',
-                          fit: BoxFit.fill,
-                        ),
-                        Image.asset(
-                          'images/4.jpg',
-                          fit: BoxFit.fill,
-                        ),
-                        Image.asset(
-                          'images/5.jpg',
                           fit: BoxFit.fill,
                         ),
                       ],
@@ -112,9 +101,67 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       ),
                     ],
                   ),
+                  Positioned(
+                    right: 14,
+                    bottom: 40,
+                    child: Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                            color: kGrey[400],
+                            offset: Offset(2, 3),
+                            blurRadius: 7),
+                      ]),
+                      child: FeaturedIcon(
+                        iconData: Icons.favorite,
+                        backGroundColor: kRed,
+                        color: kWhite,
+                      ),
+                    ),
+                  )
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      CustomText(
+                        titleText: widget.products.name,
+                        customFontSize: 26,
+                        customFontWeight: FontWeight.bold,
+                      ),
+                      CustomText(
+                        titleText: '\$${widget.products.price}',
+                        customFontSize: 20,
+                        customFontWeight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                  CustomText(
+                    titleText: 'by ${widget.products.vendor}',
+                    customFontSize: 14,
+                    customColors: kGrey,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            CustomButton(
+              text: CustomText(
+                titleText: 'Add to Bag',
+                customFontSize: 26,
+                customColors: kWhite,
+                customFontWeight: FontWeight.w600,
+              ),
+              iconButtonSize: 28,
+              colorIconButton: kRed,
+              onCustomIconButtonPressed: () {},
+              onGestureDetectorTap: () {},
+            ),
           ],
         ),
       ),
