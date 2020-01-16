@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_ordering_app/helpers/commons.dart';
-import 'package:food_ordering_app/widgets/custom_text.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

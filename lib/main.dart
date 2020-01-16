@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_ordering_app/screens/login_screen.dart';
+import 'package:food_ordering_app/widgets/custom_bottomnavbar.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: CustomBottomNavigation(),
     );
   }
 }
